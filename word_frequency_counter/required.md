@@ -1,4 +1,4 @@
-task = """
+1. task = """
     1. Takes user input string
     2. Normalizes it by : conv to lowwercase , striping leading and / tailing whitespace
     3. Removes punctuation 
@@ -8,7 +8,7 @@ task = """
         values = frequency counts of each words
 """
 
-requirements = """
+2. requirements = """
     1. use only built-in string methods
     2. include proper docstring explaining the function
     3. use  pe hints for parameters and return
