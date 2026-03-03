@@ -12,7 +12,6 @@ def counter():
     dic = {}
     
     while True:
-        print("".join("hello hi "))
         words = input("How are you doing to day: ")
         if words:
             text = words.lower().strip()
@@ -28,8 +27,7 @@ def counter():
             break
             
         print("Input a valid response")
-        
-    print(dic)
+ 
     return dic
     
 counter()
