@@ -1,3 +1,11 @@
+"""
+Word Frequency Counter
+
+This module provides functionality to count the frequency
+of words in a given text input after normalization.
+"""
+
+
 def counter():
     """Takes user input, Normalizes it, Removes punctuation and split text
         
