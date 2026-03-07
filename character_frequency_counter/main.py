@@ -18,6 +18,7 @@ def counter(user_input: str) -> dict[str,int]:
     normalized_text = user_input.lower().strip()
     cleaned_text = "".join(char for char in normalized_text if char.isalpha() or char.isspace())
     
+    
     frequency = {}
     
     for word in cleaned_text:
