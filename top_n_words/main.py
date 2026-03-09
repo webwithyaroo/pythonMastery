@@ -26,7 +26,9 @@ def counter(user_input: str)-> list[tuple, int]:
             frequency[word]=1
             
     item_list = frequency.items()
-    print(item_list)
+    sorted_items = sorted(item_list)
+    sorted_items[0:3]
+    
     return frequency
 
 if __name__ == "__main__":
