@@ -2,7 +2,7 @@
     This module uses a function to evaluate the top 3 most frequent words as a list of turples
 """
 
-def counter(user_input: str)-> list[tuple, int]:
+def counter(user_input: str)-> list[tuple[str, int]]:
     """ A program that takes user_input as argument and return the top most frequent words as a list[] of turples(words, count) 
 
     Args:
@@ -26,10 +26,10 @@ def counter(user_input: str)-> list[tuple, int]:
             frequency[word]=1
             
     item_list = frequency.items()
-    sorted_items = sorted(item_list)
-    sorted_items[0:3]
+    sorted_items = sorted(item_list, key=lambda item: item[1], reverse=True)
+    top_items = sorted_items[0:3]
     
-    return frequency
+    return top_items
 
 if __name__ == "__main__":
     
@@ -37,5 +37,6 @@ if __name__ == "__main__":
         user_input = input("Provide input as text: ")
         if user_input:
             result = counter(user_input)
+            print(result)
             break
         print("Invalid response")
