@@ -65,3 +65,10 @@ print(num_type)
 4: "even",
 5: "odd"
 }
+
+
+
+
+
+num_list = { num:num**2 for num in [1,2,3,4,5,6,7,8] if num <= 5}
+print(num_list)
