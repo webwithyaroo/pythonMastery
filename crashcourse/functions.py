@@ -6,6 +6,9 @@ def counter(text: str, min_word = 3)-> dict[str, int]:
    
     """ This is a function that takes 2 arguments, analyzes the text and return a dictionary showing the frequency of the words
 
+    Arg:
+        (text: str, min_word = 3):Takes in 2 arguments 
+    
     Returns:
         dict[str, int]:The expected result after analyses
     """
@@ -26,10 +29,6 @@ def counter(text: str, min_word = 3)-> dict[str, int]:
     
     
     return frequency
-    
-    
-    
-    
     
     
 if __name__ == "__main__":
