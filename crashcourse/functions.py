@@ -1,23 +1,11 @@
-"""
-    This module explains how a functions should handle multiple arguments
-"""
-
-def counter(text: str, min_word = 3)-> dict[str, int]:
-   
-    """ This is a function that takes 2 arguments, analyzes the text and return a dictionary showing the frequency of the words
-
-    Arg:
-        (text: str, min_word = 3):Takes in 2 arguments 
-    
-    Returns:
-        dict[str, int]:The expected result after analyses
-    """
+        
+def counter_2 (text: str, min_length = 3, top_n=None) -> list[tuple[str,int]]:
     normalized_text = text.lower()
     cleaned_text = "".join(text for text in normalized_text if text.isspace() or text.isalpha())
     split_text = cleaned_text.split()
     
-    word_check = [word for word in split_text if len(word) > min_word ]
-    
+    word_check = [word for word in split_text if len(word) >= min_length ]
+        
     frequency = {}
     
     for word in word_check:
@@ -27,15 +15,17 @@ def counter(text: str, min_word = 3)-> dict[str, int]:
         else:
             frequency[word]=1
     
+    freq_result = frequency.items()
+    sort_item = sorted(freq_result, key=lambda item: item[1], reverse=True)
+    top_items = sort_item[0:top_n]
     
-    return frequency
-    
-    
+    return top_items
+        
 if __name__ == "__main__":
     while True:
         user_input = input("Input: ")
         if user_input:
-            result = counter(user_input, 5)
+            result = counter_2(user_input, 2, 2)
             print(result)
             break
         print("Invalid input")
