@@ -1,7 +1,7 @@
         
 def counter_2 (text: str, min_length = 3, top_n=None) -> list[tuple[str,int]]:
     normalized_text = text.lower()
-    cleaned_text = "".join(text for text in normalized_text if text.isspace() or text.isalpha())
+    cleaned_text = "".join(char for char in normalized_text if text.isspace() or text.isalpha())
     split_text = cleaned_text.split()
     
     word_check = [word for word in split_text if len(word) >= min_length ]
