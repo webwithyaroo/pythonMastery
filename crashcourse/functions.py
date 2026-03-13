@@ -1,5 +1,5 @@
         
-def counter_2 (text: str, min_length = 3, top_n=None) -> list[tuple[str,int]]:
+def counter_2 (text: str, min_length = 3, top_n=3) -> list[tuple[str,int]]:
     normalized_text = text.lower()
     cleaned_text = "".join(char for char in normalized_text if text.isspace() or text.isalpha())
     split_text = cleaned_text.split()
