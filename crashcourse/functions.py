@@ -28,6 +28,7 @@ print(run_twice(add_ten, 5))
 
 
 
+# *args allows a function to take any number of positional arguments  --- inside of a function it becomes a turple containing all extra arguments
 
 def sum_all(*args):
     total = 0
@@ -40,3 +41,15 @@ def sum_all(*args):
 
 
 print(sum_all(1,2,3,4,5,6))
+
+# **kwargs allows a function to take any number of keyword  arguments  --- inside of a function it becomes a dictionary containing all extra arguments
+
+
+def display_details(**kwargs):
+    """ Prints all keyword arguments."""
+    
+    for key, value in kwargs.items():
+        print(f"{key} : {value }")
+    
+    
+display_details(name="olawale", age=30, city="New York")
