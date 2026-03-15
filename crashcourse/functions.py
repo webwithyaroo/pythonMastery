@@ -29,7 +29,7 @@ print(run_twice(add_ten, 5))
 
 
 
-def sum_all(**args):
+def sum_all(*args):
     total = 0
     
     for num in args:
@@ -39,4 +39,4 @@ def sum_all(**args):
 
 
 
-print(sum_all[1,2,3,4,5,6])
+print(sum_all(1,2,3,4,5,6))
