@@ -1,0 +1,10 @@
+from datetime import datetime
+
+def logger(*messages):
+    msg_logged =  [f"[LOG]: {msg}" for msg in messages]
+    return "\n".join([datetime.now().strftime("%Y-%m-%d %H:%M:%S") ,*msg_logged])
+        
+        
+        
+user_msg = logger("User logged in", "Fetched data", "Rendered UI")
+print(user_msg)
