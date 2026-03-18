@@ -7,4 +7,96 @@ def logger(*messages):
         
         
 user_msg = logger("User logged in", "Fetched data", "Rendered UI")
-print(user_msg)
+# print(user_msg)
+
+# Context refers to additional information we give 
+
+def context(**context):
+    
+    for key, value in context.items():
+        print(f"{key}, {value}")
+
+# context(a=1, b=3, c=6)
+
+
+
+"""Task:  
+    Write a function that:
+    Accepts any number of numbers
+    Returns the maximum value
+"""
+
+def max_value(*nums) -> int: 
+    num_list = [*nums]
+    new_list = sorted(num_list, reverse=True)
+    # num_list.sort(reverse=True)  # modified the list
+    max_num = new_list[0]
+    
+    return max_num
+    
+result = max_value(3, 7, 2, 9)  # → 9
+print(result)
+
+"""Task 2:  
+    Write a function that:
+    Accepts any number of numbers
+    Returns the maximum value
+"""
+
+def display_profile(**profile):
+    about_info = [f"{key.title()}: {value}" for key, value in profile.items()]
+    
+    return "\n".join(about_info)
+
+result2 = display_profile(name = "yaroo", country = "nigeria", stack = "frontend")
+
+# print(result2)
+
+
+"""🔹 Drill 3 — Args + Kwargs Combo """
+def order_summary(*items, **details):
+    order_items = ", ".join(items)
+    details = [f"{key.title()}: {value}" for key, value in details.items()]
+
+    return "\n".join([order_items, *details])
+result3 = order_summary(
+    "Laptop", "Mouse",
+    name="Yaroo",
+    payment="Card"
+)
+
+# print(result3)
+
+
+"""🔹 Drill 4 — Filtering Context (Real Skill)"""
+
+def logger(*messages, **context):
+    msg = ", ".join(messages)
+    ctxt = [f"{key}, {value}" for key, value in context.items() if value and key]
+
+    return "\n".join([msg, *ctxt])
+    
+    
+result4 = logger(
+    "Login attempt",
+    user="yaroo",
+    ip=None,
+    device="mobile"
+)
+
+
+# print(result4)
+
+
+"""🔹 Drill 5 — Argument Unpacking (IMPORTANT)"""
+
+def greet(name, country):
+
+    return name, country
+
+data = {
+    "name": "Yaroo",
+    "country": "Nigeria"
+}
+
+print(greet(**data))
