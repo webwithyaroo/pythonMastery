@@ -99,4 +99,19 @@ data = {
     "country": "Nigeria"
 }
 
-print(greet(**data))
+# print(greet(**data))
+
+"""🔹 Drill 6 — Real Backend Pattern"""
+
+
+def api_handler(endpoint: str, method: str ="GET", *args, **kwargs):
+    header = ", ".join([endpoint] + [method])
+    extra_arg = ", ".join(args)
+    
+    context = [f"{key}, {value}" for key, value in kwargs.items() if value and key]
+    return "\n".join([header, extra_arg, *context]) 
+    
+    
+result6 = api_handler("/posts/1", "POST", "v1", "secure", user = "Yaroo", device= "Mobile")
+
+print(result6)
