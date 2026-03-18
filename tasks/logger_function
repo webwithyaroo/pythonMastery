@@ -27,10 +27,10 @@ def context(**context):
 """
 
 def max_value(*nums) -> int: 
-    num_list = [*nums]
-    new_list = sorted(num_list, reverse=True)
-    # num_list.sort(reverse=True)  # modified the list
-    max_num = new_list[0]
+    max_num = max(nums)
+    
+    if not nums:
+        raise ValueError("At least one number is required")
     
     return max_num
     
