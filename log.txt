@@ -1,9 +1,8 @@
-2026-03-19 08:41:37  INFO  user logged in
-User: yaroo
-Device: mobile2026-03-19 08:42:25  INFO  user logged in
-User: yaroo
-Device: mobile2026-03-19 08:42:56  INFO  user logged in
-User: yaroo
-Device: mobile2026-03-19 08:43:21  INFO  user logged in
+2026-03-19 08:48:01  INFO  user logged in
 User: yaroo
 Device: mobile
+
+2026-03-19 08:49:27  [INFO]  user logged in
+User: yaroo
+Device: mobile
+

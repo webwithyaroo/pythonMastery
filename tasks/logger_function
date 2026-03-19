@@ -123,25 +123,34 @@ from datetime import datetime
 
 """ Advanced logger"""
 
+from datetime import datetime  # Crucial import
 
 def save(msg_log):
+    # Added "\n\n" to separate different log entries in the file
     with open("log.txt", "a") as f:
-            f.write(msg_log)
-            print("File created succesfully") 
+        f.write(msg_log + "\n\n")
+    print("File updated successfully") 
 
 def advanced_logger(level="INFO", *messages, save_to_file=False, **context):
-    check = ",".join(messages) 
+    # 1. Join messages with space instead of comma for better readability
+    check = " ".join(messages) 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    header = f"{timestamp}  {level}  {check}"
+    header = f"{timestamp}  [{level.upper()}]  {check}"
     
-    details = [ f"{key.replace(" ", "_").title()}: {value}" for key, value in context.items()]
+    # 2. Format context keys (e.g., 'user' -> 'User')
+    details = [f"{key.title()}: {value}" for key, value in context.items()]
+    
+    # 3. Combine header and details into one block
     msg_log = "\n".join([header, *details])
     
-    save(msg_log) if save_to_file is True else None
-    
+    # 4. Standard 'if' is cleaner than ternary for actions like saving
+    if save_to_file:
+        save(msg_log)
     
     return msg_log
-logged_data = advanced_logger("INFO", "user logged in", save_to_file=True, user="yaroo",device="mobile")    
-print(logged_data)
+
+# Calling the function
+logged_data = advanced_logger("INFO", "user logged in", save_to_file=True, user="yaroo", device="mobile")    
+print("\nFinal Output:\n" + logged_data)
 
 
