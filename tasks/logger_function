@@ -114,4 +114,34 @@ def api_handler(endpoint: str, method: str ="GET", *args, **kwargs):
     
 result6 = api_handler("/posts/1", "POST", "v1", "secure", user = "Yaroo", device= "Mobile")
 
-print(result6)
+# print(result6)
+
+
+from datetime import datetime
+
+
+
+""" Advanced logger"""
+
+
+def save(msg_log):
+    with open("log.txt", "a") as f:
+            f.write(msg_log)
+            print("File created succesfully") 
+
+def advanced_logger(level="INFO", *messages, save_to_file=False, **context):
+    check = ",".join(messages) 
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    header = f"{timestamp}  {level}  {check}"
+    
+    details = [ f"{key.replace(" ", "_").title()}: {value}" for key, value in context.items()]
+    msg_log = "\n".join([header, *details])
+    
+    save(msg_log) if save_to_file is True else None
+    
+    
+    return msg_log
+logged_data = advanced_logger("INFO", "user logged in", save_to_file=True, user="yaroo",device="mobile")    
+print(logged_data)
+
+
