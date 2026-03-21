@@ -16,18 +16,17 @@ def time_execution(retry=3):
         @wraps(func)
         def wrapper(*args, **kwargs):
             try:
-                for num in range(retry):
-                    print(f"{num} retry")
+                for attempt in range(retry):
+                    
                     result = func(*args, **kwargs)
                     return result
 
             except Exception as e:
-                print("The function failed to run")
-                raise e
+                print(f"Retry {attempt+1} failed")
         return wrapper
     return decorator
 
 @time_execution(3)
 def greet():
-    print(home)
+    print(3030)
 greet()
