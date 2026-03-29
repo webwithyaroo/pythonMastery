@@ -30,5 +30,38 @@ def time_execution(retry=3):
 
 @time_execution(3)
 def greet():
-    print(home)
-greet()
+    print(303)
+# greet()
+
+
+import time
+def rate_limit(seconds: int):
+    def decorator(func):
+        last_called = 0
+        
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            nonlocal last_called
+            now = time.time()
+            print(now)
+            if now - last_called < seconds:
+                print("Too many requests")
+                return 
+            
+            last_called = now 
+            return func(*args, **kwargs)
+        
+        
+        return wrapper
+    return decorator
+
+@rate_limit(3)
+def func():
+    print(103)
+func()
+time.sleep(3)
+func()
+time.sleep(3)
+func()
+time.sleep(3)
+func()
