@@ -12,8 +12,3 @@ file = open("service.pdf", "w")
 write_file = file.write(" This is a service file ")
 file.close() # Always close file
 
-
-
-read_file = open("service.pdf", "r")
-read_file = read_file.read()
-print(read_file)
